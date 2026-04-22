@@ -1,0 +1,28 @@
+import { ArrowRight } from "lucide-react";
+import example from "/example.jpg";
+export default function BammerItem() {
+  return (
+    <div className="group relative overflow-hidden">
+      <img
+        src={example}
+        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+      />
+
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-white/5 transition duration-500" />
+
+      <div className="absolute bottom-10 left-6 md:left-10 space-y-4">
+        <p className="text-xs tracking-[3px] text-gray-500 uppercase ">
+          NEW SEASON
+        </p>
+
+        <h2 className="text-3xl md:text-4xl font-light text-gray-900 ">
+          Outerwear Edit
+        </h2>
+
+        <button className="mt-4 inline-flex items-center gap-2 bg-black text-white px-6 py-3 text-sm tracking-wide font-medium cursor-pointer hover:translate-x-2 transition duration-500">
+          EXPLORE <ArrowRight size={16} />
+        </button>
+      </div>
+    </div>
+  );
+}

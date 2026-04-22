@@ -4,11 +4,19 @@ body {
 }
 
 @theme {
-  --color-surface: #faf8f4;
+  --color-surface: #f4f0e5;
   --color-title: #2e2c28;
   --color-text: #8a8578;
 
   --color-bg: #0f0e0d;
   --color-accent: #e8a020;
   --color-accent2: #c45c2a;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
