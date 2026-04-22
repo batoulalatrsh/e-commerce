@@ -1,19 +1,14 @@
 @import "tailwindcss";
 body {
-  background: var(--bg);
-  color: var(--text);
   font-family: "DM Sans", sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
 }
 
 @theme {
+  --color-surface: #faf8f4;
+  --color-title: #2e2c28;
+  --color-text: #8a8578;
+
   --color-bg: #0f0e0d;
-  --color-surface: #1a1916;
-  --color-border: #2e2c28;
-  --color-text: #f0ece3;
-  --color-muted: #8a8578;
   --color-accent: #e8a020;
   --color-accent2: #c45c2a;
-  --color-white: #faf8f4;
 }

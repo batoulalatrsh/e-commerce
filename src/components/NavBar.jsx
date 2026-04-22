@@ -4,13 +4,13 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-black/5">
       <div className="flex items-center justify-between px-5 py-4 md:px-12">
-        {/* Logo */}
+       
         <div className="leading-tight tracking-[0.25em]">
-          <p className="text-black text-sm font-semibold">AURUM</p>
+          <a href="" className="text-black text-sm font-semibold">AURUM</a>
           <p className="text-[10px] text-black/50">STUDIO</p>
         </div>
 
-        {/* Desktop Links */}
+        
         <ul className="hidden md:flex gap-10 text-sm text-black/60">
           <li className="text-black font-medium cursor-pointer">HOME</li>
           <li className="hover:text-black transition cursor-pointer">SHOP</li>
@@ -20,7 +20,7 @@ export default function Navbar() {
           <li className="hover:text-black transition cursor-pointer">ABOUT</li>
         </ul>
 
-        {/* Icons */}
+       
         <div className="flex items-center gap-5 text-black/70">
           <Search
             size={18}
