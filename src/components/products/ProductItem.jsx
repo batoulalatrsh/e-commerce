@@ -1,11 +1,15 @@
 import { Heart } from "lucide-react";
 import example from "/example.jpg";
+import { Link } from "react-router-dom";
 export default function ProductItem({ data }) {
   return (
-    <div className="p-2 cursor-pointer min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[23%] snap-start">
+    <Link
+      to={`/product/${data.id}`}
+      className="p-2 cursor-pointer min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[23%] snap-start"
+    >
       <div className="group relative overflow-hidden bg-[#ffff] border border-gray-200">
         <div className="h-[320px] bg-gray-100 flex items-center justify-center">
-          <img src={data?.images[0]} className="object-cover"/>
+          <img src={data?.image} className="object-cover" />
         </div>
 
         <div className="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition duration-400 flex items-end">
@@ -21,7 +25,7 @@ export default function ProductItem({ data }) {
         </h3>
 
         <div className="flex items-center gap-2 text-sm">
-          <span className="text-gray-900 font-semibold">$289</span>
+          <span className="text-gray-900 font-semibold">${data?.price}</span>
         </div>
 
         <div className="flex items-center gap-1 text-sm">
@@ -32,6 +36,6 @@ export default function ProductItem({ data }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -5,7 +5,7 @@ import Root from "./pages/Root";
 import "./App.css";
 import React from "react";
 import HomePage, { loader as homeLoader } from "./pages/Home";
-
+const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
 const routerDefenation = createBrowserRouter([
   {
     path: "/",
@@ -15,6 +15,14 @@ const routerDefenation = createBrowserRouter([
         index: true,
         element: <HomePage />,
         loader: homeLoader,
+      },
+      {
+        path: "product/:id",
+        element: (
+          <React.Suspense>
+            <ProductDeatailsPage />
+          </React.Suspense>
+        ),
       },
     ],
   },

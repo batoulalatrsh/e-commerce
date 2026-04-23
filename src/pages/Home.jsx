@@ -17,7 +17,7 @@ export default function HomePage() {
   //   .slice(0, 8);
 
   // const featuredPieces = data?.slice(8, 16);
-  console.log(data);
+  console.log(data?.products);
   return (
     <>
       <Hero />
@@ -25,14 +25,14 @@ export default function HomePage() {
         title="Featured Pieces"
         description="CURATED"
         bgColor="bg-white"
-        products={data}
+        products={data?.products}
       />
       <SplitBanner />
       <Products
         title="Bestsellers"
         description="Most Loved"
         bgColor="bg-surface"
-        products={data}
+        products={data?.products}
       />
       <SubscribeSection />
     </>
