@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "./lib/api";
 import Root from "./pages/Root";
-import HomePage from "./pages/Home";
+import HomePage, { loader as homeLoader } from "./pages/Home";
 import "./App.css";
 
 const routerDefenation = createBrowserRouter([
@@ -12,12 +13,11 @@ const routerDefenation = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+        loader: homeLoader,
       },
     ],
   },
 ]);
-
-const queryClient = new QueryClient();
 
 function App() {
   return (

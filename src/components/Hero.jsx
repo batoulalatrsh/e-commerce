@@ -40,7 +40,6 @@ export default function Hero() {
           <div className="w-[3px] rounded-full h-20 bg-gradient-to-b from-transparent to-title mb-2 animate-pulse"></div>
           SCROLL
         </div>
-
       </div>
     </section>
   );

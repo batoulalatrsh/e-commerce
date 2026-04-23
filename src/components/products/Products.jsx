@@ -1,6 +1,6 @@
 import ProductItem from "./ProductItem";
 import Button from "../../ui/Button";
-export default function Products({ title, description, bgColor }) {
+export default function Products({ title, description, bgColor,products }) {
   return (
     <section className={`${bgColor} px-4 md:px-10 py-12`}>
       <div className="flex items-end justify-between mb-10 py-2">

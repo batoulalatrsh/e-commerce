@@ -3,7 +3,7 @@ import example from "/example.jpg";
 export default function ProductItem() {
   return (
     <div className="p-2 cursor-pointer min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[23%] snap-start">
-      <div className="group relative overflow-hidden bg-white border border-gray-200">
+      <div className="group relative overflow-hidden bg-[#ffff] border border-gray-200">
         <div className="h-[320px] bg-gray-100 flex items-center justify-center">
           <img src={example} />
         </div>
