@@ -2,10 +2,9 @@ import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
 
 export async function getProducts({ signal }) {
-  const data = await fetch(
-    "https://api.escuelajs.co/api/v1/products?offset=0&limit=20",
-    { signal },
-  );
+  const data = await fetch("https://your-app.onrender.com/products", {
+    signal,
+  });
   if (!data.ok) throw new Error("Coul Not fetch products!");
   return data.json();
 }

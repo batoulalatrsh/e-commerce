@@ -1,11 +1,11 @@
 import { Heart } from "lucide-react";
 import example from "/example.jpg";
-export default function ProductItem() {
+export default function ProductItem({ data }) {
   return (
     <div className="p-2 cursor-pointer min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[23%] snap-start">
       <div className="group relative overflow-hidden bg-[#ffff] border border-gray-200">
         <div className="h-[320px] bg-gray-100 flex items-center justify-center">
-          <img src={example} />
+          <img src={data?.images[0]} className="object-cover"/>
         </div>
 
         <div className="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition duration-400 flex items-end">
@@ -17,7 +17,7 @@ export default function ProductItem() {
 
       <div className="mt-4 space-y-1">
         <h3 className="text-gray-900 text-base font-medium leading-snug">
-          Obsidian Leather Jacket
+          {data?.title}
         </h3>
 
         <div className="flex items-center gap-2 text-sm">

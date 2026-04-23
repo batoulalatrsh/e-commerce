@@ -1,8 +1,8 @@
 import SubscribeSection from "../components/SubscribeSection";
 import SplitBanner from "../components/products/SplitBanner";
 import Products from "../components/products/Products";
-import { useQuery } from "@tanstack/react-query";
 import { getProducts, queryClient } from "../lib/api";
+import { useQuery } from "@tanstack/react-query";
 import Hero from "../components/Hero";
 
 export default function HomePage() {
@@ -11,10 +11,13 @@ export default function HomePage() {
     queryFn: ({ signal }) => getProducts({ signal }),
   });
 
-  if (isLoading) {
-    return <p className="text-red-600">Loading..</p>;
-  }
+  // const bestSellers = data
+  //   ?.slice()
+  //   .sort((a, b) => b.price - a.price)
+  //   .slice(0, 8);
 
+  // const featuredPieces = data?.slice(8, 16);
+  console.log(data);
   return (
     <>
       <Hero />
@@ -29,6 +32,7 @@ export default function HomePage() {
         title="Bestsellers"
         description="Most Loved"
         bgColor="bg-surface"
+        products={data}
       />
       <SubscribeSection />
     </>
@@ -36,7 +40,7 @@ export default function HomePage() {
 }
 
 export async function loader() {
-  return await queryClient.prefetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: ["products"],
     queryFn: ({ signal }) => getProducts({ signal }),
   });
