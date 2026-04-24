@@ -13,9 +13,9 @@ export default function ProductDetails({ data }) {
         {/* IMAGE */}
         <div className="w-full flex justify-center lg:justify-start">
           <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-100">
+            <div className="aspect-[4/5] lg:aspect-[1/1] w-full overflow-hidden rounded-2xl bg-gray-100">
               <img
-                src={data?.images[0]}
+                src={data?.images[2]}
                 className="w-full h-full object-cover transition duration-500 hover:scale-105"
               />
             </div>
@@ -50,7 +50,6 @@ export default function ProductDetails({ data }) {
 
           <hr className="border-gray-200" />
 
-          
           {/* Sizes */}
           <div className="space-y-2">
             <div className="flex justify-between">
@@ -72,22 +71,18 @@ export default function ProductDetails({ data }) {
             </div>
           </div>
 
-          
           <div className="flex flex-col sm:flex-row gap-4">
-            
             <div className="flex items-center justify-between border border-gray-300 rounded-md w-full sm:w-40">
               <button className="px-4 py-2">-</button>
               <span>1</span>
               <button className="px-4 py-2">+</button>
             </div>
 
-            
             <button className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition">
               ADD TO BAG <ShoppingBag size={16} />
             </button>
           </div>
 
-          
           <button className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 text-sm rounded-md hover:border-black hover:text-black transition">
             <Heart size={16} />
             ADD TO WISHLIST
@@ -95,7 +90,6 @@ export default function ProductDetails({ data }) {
 
           <hr className="border-gray-200" />
 
-          
           <p className="text-gray-500 text-sm leading-relaxed">
             {data?.description}
           </p>

@@ -9,7 +9,7 @@ export default function ProductItem({ data }) {
     >
       <div className="group relative overflow-hidden bg-[#ffff] border border-gray-200">
         <div className="h-[320px] bg-gray-100 flex items-center justify-center">
-          <img src={data?.image} className="object-cover" />
+          <img src={data?.images[0]} className="object-cover" />
         </div>
 
         <div className="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition duration-400 flex items-end">

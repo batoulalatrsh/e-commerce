@@ -1,23 +1,17 @@
 import SubscribeSection from "../components/SubscribeSection";
 import SplitBanner from "../components/products/SplitBanner";
 import Products from "../components/products/Products";
-import { getProducts, queryClient } from "../lib/api";
+import { getwomenCollection, queryClient } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import Hero from "../components/Hero";
 
 export default function HomePage() {
   const { data, isLoading } = useQuery({
     queryKey: ["products"],
-    queryFn: ({ signal }) => getProducts({ signal }),
+    queryFn: ({ signal }) => getwomenCollection({ signal }),
   });
 
-  // const bestSellers = data
-  //   ?.slice()
-  //   .sort((a, b) => b.price - a.price)
-  //   .slice(0, 8);
-
-  // const featuredPieces = data?.slice(8, 16);
-  console.log(data?.products);
+  // console.log(data);
   return (
     <>
       <Hero />
@@ -25,14 +19,14 @@ export default function HomePage() {
         title="Featured Pieces"
         description="CURATED"
         bgColor="bg-white"
-        products={data?.products}
+        products={data}
       />
       <SplitBanner />
       <Products
         title="Bestsellers"
         description="Most Loved"
         bgColor="bg-surface"
-        products={data?.products}
+        products={data}
       />
       <SubscribeSection />
     </>
@@ -42,7 +36,7 @@ export default function HomePage() {
 export async function loader() {
   await queryClient.prefetchQuery({
     queryKey: ["products"],
-    queryFn: ({ signal }) => getProducts({ signal }),
+    queryFn: ({ signal }) => getwomenCollection({ signal }),
   });
   return null;
 }

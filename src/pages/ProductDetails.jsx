@@ -2,25 +2,17 @@ import ProductDetailsSkeleton from "../components/products/ProductDetailsSkeleto
 import ProductDetails from "../components/products/ProductDetails";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { getProduct } from "../lib/api";
 export default function ProductDetailsPage() {
   const params = useParams();
   const id = params.id;
 
   const { data, isLoading } = useQuery({
     queryKey: ["products", id],
-    queryFn: async ({ signal }) => {
-      const data = await fetch(
-        `https://luxury-fashion-api.vercel.app/products/${id}`,
-        {
-          signal,
-        },
-      );
-      if (!data.ok) throw new Error("Coul Not fetch products!");
-      return data.json();
-    },
+    queryFn: async ({ signal }) => getProduct({ signal, id }),
   });
+  console.log(data);
 
   if (isLoading) return <ProductDetailsSkeleton />;
-  // console.log(data);
-  return <ProductDetails data={data?.product} />;
+  return <ProductDetails data={data} />;
 }
