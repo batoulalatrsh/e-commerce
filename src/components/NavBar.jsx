@@ -1,26 +1,59 @@
 import { Search, Heart, ShoppingBag, Menu } from "lucide-react";
-
+import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-black/5">
       <div className="flex items-center justify-between px-5 py-4 md:px-12">
-       
         <div className="leading-tight tracking-[0.25em]">
-          <a href="" className="text-black text-sm font-semibold">AURUM</a>
+          <a href="" className="text-black text-sm font-semibold">
+            AURUM
+          </a>
           <p className="text-[10px] text-black/50">STUDIO</p>
         </div>
 
-        
         <ul className="hidden md:flex gap-10 text-sm text-black/60">
-          <li className="text-black font-medium cursor-pointer">HOME</li>
-          <li className="hover:text-black transition cursor-pointer">SHOP</li>
-          <li className="hover:text-black transition cursor-pointer">
+          <NavLink
+            to=""
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
+            HOME
+          </NavLink>
+          <NavLink
+            to="products"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
+            SHOP
+          </NavLink>
+          <NavLink
+            to=""
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
             COLLECTIONS
-          </li>
-          <li className="hover:text-black transition cursor-pointer">ABOUT</li>
+          </NavLink>
+          <NavLink
+            to=""
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
+            ABOUT
+          </NavLink>
         </ul>
 
-       
         <div className="flex items-center gap-5 text-black/70">
           <Search
             size={18}

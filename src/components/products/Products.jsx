@@ -21,7 +21,7 @@ export default function Products({
           </h2>
         </div>
 
-        <Button text="VIEW ALL →" />
+        <Button text="VIEW ALL →" path="products" />
       </div>
 
       <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth">

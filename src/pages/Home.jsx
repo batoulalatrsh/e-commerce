@@ -20,16 +20,16 @@ export default function HomePage() {
     <>
       <Hero />
       <Products
-        title="Featured Pieces"
-        description="CURATED"
+        title="Womans Collection"
+        description="WOMANS"
         bgColor="bg-white"
         products={womenCollection}
         loading={womenCollIsLoading}
       />
       <SplitBanner />
       <Products
-        title="Bestsellers"
-        description="Most Loved"
+        title="Men Collection"
+        description="MEN"
         bgColor="bg-surface"
         products={menCollection}
         loading={menCollIsLoading}

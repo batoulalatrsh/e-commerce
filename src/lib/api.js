@@ -5,7 +5,7 @@ const URL = "https://dummyjson.com/products/";
 async function fetchCollection(categories, signal) {
   try {
     const promises = categories.map(async (cat) => {
-      const res = await fetch(`${URL}category/${cat}`, { signal });
+      const res = await fetch(`${URL}category/${cat}?limit=10`, { signal });
       if (!res.ok) {
         throw new Error(`Failed to fetch ${cat}`);
       }
