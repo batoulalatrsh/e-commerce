@@ -1,7 +1,7 @@
+import { getwomansCollection, getmenCollection, queryClient } from "../lib/api";
 import SubscribeSection from "../components/SubscribeSection";
 import SplitBanner from "../components/products/SplitBanner";
 import Products from "../components/products/Products";
-import { getwomansCollection, getmenCollection, queryClient } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import Hero from "../components/Hero";
 
@@ -25,6 +25,8 @@ export default function HomePage() {
         bgColor="bg-white"
         products={womenCollection}
         loading={womenCollIsLoading}
+        isShoppPage={false}
+        path="products/womans"
       />
       <SplitBanner />
       <Products
@@ -33,6 +35,8 @@ export default function HomePage() {
         bgColor="bg-surface"
         products={menCollection}
         loading={menCollIsLoading}
+        isShoppPage={false}
+        path="products/men"
       />
       <SubscribeSection />
     </>

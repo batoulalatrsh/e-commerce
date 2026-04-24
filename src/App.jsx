@@ -27,14 +27,20 @@ const routerDefenation = createBrowserRouter([
         ),
       },
       {
+        path: "products/:gendre",
+        element: (
+          <React.Suspense>
+            <ProductsPage />
+          </React.Suspense>
+        ),
+      },
+      {
         path: "product/:id",
         element: (
           <React.Suspense>
             <ProductDeatailsPage />
           </React.Suspense>
         ),
-        loader: (meta) =>
-          import("./pages/ProductDetails").then((module) => module.loader),
       },
     ],
   },

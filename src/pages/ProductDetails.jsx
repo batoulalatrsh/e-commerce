@@ -16,12 +16,3 @@ export default function ProductDetailsPage() {
   if (isLoading) return <ProductDetailsSkeleton />;
   return <ProductDetails data={data} />;
 }
-
-export async function loader({ params }) {
-  const id = params.id;
-  await queryClient.prefetchQuery({
-    queryKey: ["products", id],
-    queryFn: async ({ signal }) => getProduct({ signal, id }),
-  });
-  return null;
-}
