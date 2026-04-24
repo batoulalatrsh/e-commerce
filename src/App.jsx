@@ -1,11 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage, { loader as homeLoader } from "./pages/Home";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/api";
 import Root from "./pages/Root";
-import "./App.css";
 import React from "react";
-import HomePage, { loader as homeLoader } from "./pages/Home";
+import "./App.css";
+
 const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
+
 const routerDefenation = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +25,8 @@ const routerDefenation = createBrowserRouter([
             <ProductDeatailsPage />
           </React.Suspense>
         ),
+        loader: (meta) =>
+          import("./pages/ProductDetails").then((module) => module.loader),
       },
     ],
   },

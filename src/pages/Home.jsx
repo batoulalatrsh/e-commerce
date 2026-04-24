@@ -1,17 +1,21 @@
 import SubscribeSection from "../components/SubscribeSection";
 import SplitBanner from "../components/products/SplitBanner";
 import Products from "../components/products/Products";
-import { getwomenCollection, queryClient } from "../lib/api";
+import { getwomansCollection, getmenCollection, queryClient } from "../lib/api";
 import { useQuery } from "@tanstack/react-query";
 import Hero from "../components/Hero";
 
 export default function HomePage() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: ({ signal }) => getwomenCollection({ signal }),
+  const { data: womenCollection, isLoading: womenCollIsLoading } = useQuery({
+    queryKey: ["womenProducts"],
+    queryFn: ({ signal }) => getwomansCollection({ signal }),
   });
 
-  // console.log(data);
+  const { data: menCollection, isLoading: menCollIsLoading } = useQuery({
+    queryKey: ["menProducts"],
+    queryFn: ({ signal }) => getmenCollection({ signal }),
+  });
+
   return (
     <>
       <Hero />
@@ -19,14 +23,16 @@ export default function HomePage() {
         title="Featured Pieces"
         description="CURATED"
         bgColor="bg-white"
-        products={data}
+        products={womenCollection}
+        loading={womenCollIsLoading}
       />
       <SplitBanner />
       <Products
         title="Bestsellers"
         description="Most Loved"
         bgColor="bg-surface"
-        products={data}
+        products={menCollection}
+        loading={menCollIsLoading}
       />
       <SubscribeSection />
     </>
@@ -36,7 +42,7 @@ export default function HomePage() {
 export async function loader() {
   await queryClient.prefetchQuery({
     queryKey: ["products"],
-    queryFn: ({ signal }) => getwomenCollection({ signal }),
+    queryFn: ({ signal }) => getwomansCollection({ signal }),
   });
   return null;
 }

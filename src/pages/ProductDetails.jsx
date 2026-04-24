@@ -2,7 +2,7 @@ import ProductDetailsSkeleton from "../components/products/ProductDetailsSkeleto
 import ProductDetails from "../components/products/ProductDetails";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getProduct } from "../lib/api";
+import { getProduct, queryClient } from "../lib/api";
 export default function ProductDetailsPage() {
   const params = useParams();
   const id = params.id;
@@ -15,4 +15,13 @@ export default function ProductDetailsPage() {
 
   if (isLoading) return <ProductDetailsSkeleton />;
   return <ProductDetails data={data} />;
+}
+
+export async function loader({ params }) {
+  const id = params.id;
+  await queryClient.prefetchQuery({
+    queryKey: ["products", id],
+    queryFn: async ({ signal }) => getProduct({ signal, id }),
+  });
+  return null;
 }

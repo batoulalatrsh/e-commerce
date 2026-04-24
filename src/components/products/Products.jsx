@@ -1,6 +1,13 @@
+import ProductItemSkeleton from "./ProductItemSkeleton";
 import ProductItem from "./ProductItem";
 import Button from "../../ui/Button";
-export default function Products({ title, description, bgColor, products }) {
+export default function Products({
+  title,
+  description,
+  bgColor,
+  products,
+  loading,
+}) {
   return (
     <section className={`${bgColor} px-4 md:px-10 py-12`}>
       <div className="flex items-end justify-between mb-10 py-2">
@@ -18,6 +25,10 @@ export default function Products({ title, description, bgColor, products }) {
       </div>
 
       <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth">
+        {loading &&
+          Array.from({ length: 6 }).map((_, i) => (
+            <ProductItemSkeleton key={i} />
+          ))}
         {products?.map((prod) => (
           <ProductItem key={prod?.id} data={prod} />
         ))}
