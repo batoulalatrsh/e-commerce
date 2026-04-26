@@ -1,10 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage, { loader as homeLoader } from "./pages/Home";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/api";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 import Root from "./pages/Root";
 import React from "react";
 import "./App.css";
+import HomePage, { loader as homeLoader } from "./pages/Home";
 const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
 const ProductsPage = React.lazy(() => import("./pages/Products"));
 const CartPage = React.lazy(() => import("./pages/CartPage"));
@@ -58,7 +60,9 @@ const routerDefenation = createBrowserRouter([
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={routerDefenation} />
+      <Provider store={store}>
+        <RouterProvider router={routerDefenation} />
+      </Provider>
     </QueryClientProvider>
   );
 }
