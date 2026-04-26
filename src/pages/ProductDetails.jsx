@@ -11,8 +11,6 @@ export default function ProductDetailsPage() {
     queryKey: ["products", id],
     queryFn: async ({ signal }) => getProduct({ signal, id }),
   });
-  console.log(data);
-
   if (isLoading) return <ProductDetailsSkeleton />;
   return <ProductDetails data={data} />;
 }

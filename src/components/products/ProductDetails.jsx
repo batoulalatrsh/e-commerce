@@ -1,8 +1,13 @@
 import { Heart, ShoppingBag, Truck, RotateCcw, Shield } from "lucide-react";
 import img from "/example.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../store/cart";
 
 export default function ProductDetails({ data }) {
-  console.log(data);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart);
+  console.log(items);
+
   return (
     <section className="bg-white px-4 md:px-10 py-10">
       <p className="text-sm text-gray-400 mb-6">
@@ -78,7 +83,10 @@ export default function ProductDetails({ data }) {
               <button className="px-4 py-2">+</button>
             </div>
 
-            <button className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition">
+            <button
+              className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition"
+              onClick={(e) => dispatch(addItem(data))}
+            >
               ADD TO BAG <ShoppingBag size={16} />
             </button>
           </div>
