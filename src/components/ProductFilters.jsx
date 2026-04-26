@@ -8,15 +8,15 @@ export default function ProductFilters() {
           type="text"
           placeholder="Search products..."
           className="w-full pl-10 pr-4 py-2.5 bg-gray-50 text-gray-800 border border-gray-200
-                                focus:outline-none focus:ring-1 focus:ring-black/20 focus:border-black/20
-                                cursor-pointer transition"
+                    focus:outline-none focus:ring-1 focus:ring-black/20 focus:border-black/20
+                    cursor-pointer transition"
         />
       </div>
 
       <select
         className="relative w-full md:w-56 px-4 py-2.5 bg-gray-50 text-gray-700 border border-gray-200
-                              focus:outline-none focus:ring-1 focus:ring-black/20 focus:border-black/20
-                              cursor-pointer transition"
+                focus:outline-none focus:ring-1 focus:ring-black/20 focus:border-black/20
+                cursor-pointer transition"
       >
         <option>Featured</option>
         <option>Men Collection</option>

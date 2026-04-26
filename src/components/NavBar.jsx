@@ -55,10 +55,19 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-5 text-black/70">
-          <Search
-            size={18}
-            className="cursor-pointer hover:text-black transition"
-          />
+          <NavLink
+            to="products"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
+            <Search
+              size={18}
+              className="cursor-pointer hover:text-black transition"
+            />
+          </NavLink>
 
           <div className="relative">
             <Heart
@@ -70,10 +79,19 @@ export default function Navbar() {
             </span>
           </div>
 
-          <ShoppingBag
-            size={18}
-            className="cursor-pointer hover:text-black transition"
-          />
+          <NavLink
+            to="cart"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black"
+                : "hover:text-black transition cursor-pointer"
+            }
+          >
+            <ShoppingBag
+              size={18}
+              className="cursor-pointer hover:text-black transition"
+            />
+          </NavLink>
 
           <Menu className="md:hidden cursor-pointer" size={20} />
         </div>

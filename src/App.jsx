@@ -5,9 +5,10 @@ import { queryClient } from "./lib/api";
 import Root from "./pages/Root";
 import React from "react";
 import "./App.css";
-// import ProductsPage from "./pages/Products";
 const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
 const ProductsPage = React.lazy(() => import("./pages/Products"));
+const CartPage = React.lazy(() => import("./pages/CartPage"));
+
 const routerDefenation = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +40,14 @@ const routerDefenation = createBrowserRouter([
         element: (
           <React.Suspense>
             <ProductDeatailsPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: "cart",
+        element: (
+          <React.Suspense>
+            <CartPage />
           </React.Suspense>
         ),
       },
