@@ -1,8 +1,12 @@
 import { Heart, ShoppingBag, Truck, RotateCcw, Shield } from "lucide-react";
 import useCart from "../../hooks/useCart";
+import { useState } from "react";
+
 export default function ProductDetails({ data }) {
-  const { handleAddToCart, chosenSize, setChosenSize, setQuantity, quantity } =
-    useCart();
+  const [chosenSize, setChosenSize] = useState("M");
+  const [quantity, setQuantity] = useState(1);
+
+  const { handleAddToCart } = useCart();
   return (
     <section className="bg-white px-4 md:px-10 py-10">
       <p className="text-sm text-gray-400 mb-6">
@@ -87,7 +91,10 @@ export default function ProductDetails({ data }) {
 
             <button
               className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition"
-              onClick={(e) => handleAddToCart(data, chosenSize, quantity)}
+              onClick={(e) => {
+                handleAddToCart(data, chosenSize, quantity);
+                setQuantity((prev => prev + 1));
+              }}
             >
               ADD TO BAG <ShoppingBag size={16} />
             </button>
