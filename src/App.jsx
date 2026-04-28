@@ -24,7 +24,7 @@ const routerDefenation = createBrowserRouter([
       {
         path: "products",
         element: (
-          <React.Suspense>
+          <React.Suspense fallback="Product Page Laoding..">
             <ProductsPage />
           </React.Suspense>
         ),
@@ -32,7 +32,7 @@ const routerDefenation = createBrowserRouter([
       {
         path: "products/:gendre",
         element: (
-          <React.Suspense>
+          <React.Suspense fallback="Product Page Laoding..">
             <ProductsPage />
           </React.Suspense>
         ),
@@ -40,7 +40,7 @@ const routerDefenation = createBrowserRouter([
       {
         path: "product/:id",
         element: (
-          <React.Suspense>
+          <React.Suspense fallback="ProductDetails Page Laoding..">
             <ProductDeatailsPage />
           </React.Suspense>
         ),
@@ -48,7 +48,7 @@ const routerDefenation = createBrowserRouter([
       {
         path: "cart",
         element: (
-          <React.Suspense>
+          <React.Suspense fallback="Cart Page Laoding..">
             <CartPage />
           </React.Suspense>
         ),

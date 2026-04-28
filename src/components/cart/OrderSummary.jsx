@@ -20,19 +20,10 @@ export default function OrderSummary() {
         <span>$468.72</span>
       </div>
 
-      <div className="flex gap-2 mb-5">
-        <input
-          type="text"
-          placeholder="Promo code"
-          className="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
-        />
-
-        <button className="px-4 py-2 border rounded-lg text-sm font-medium hover:bg-gray-100">
-          APPLY
-        </button>
-      </div>
-
-      <button className="w-full bg-black hover:bg-gray-900 text-white font-medium py-3 transition duration-300">
+      <button
+        className="w-full bg-black hover:bg-gray-900 text-white font-medium py-3 active:scale-[0.99]
+                  shadow-sm transition duration-300"
+      >
         CHECKOUT →
       </button>
 

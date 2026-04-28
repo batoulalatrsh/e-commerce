@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
-import SetQuantityButtons from "../../ui/SetQuantityButtons";
 
 export default function ProductDetails({ data }) {
   console.log(data);

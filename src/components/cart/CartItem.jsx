@@ -23,7 +23,9 @@ export default function CartItem({ data }) {
         <div className="flex items-center gap-3 mt-3">
           <button
             className="w-8 h-8 border rounded-md"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
               handleRemoveItem(data);
               setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
             }}
@@ -34,6 +36,8 @@ export default function CartItem({ data }) {
           <button
             className="w-8 h-8 border rounded-md"
             onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
               handleAddToCart(data, data.image, data?.size, 1);
               setQuantity((prev) => Math.min(data?.stock || 1, prev + 1));
             }}
