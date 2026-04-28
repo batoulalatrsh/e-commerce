@@ -55,3 +55,9 @@ export async function getProduct({ signal, id }) {
   if (!data.ok) throw new Error("Coul Not fetch products!");
   return data.json();
 }
+
+export async function searchItem({ signal, debouncedValue }) {
+  const data = await fetch(`${URL}search?q=${debouncedValue}`, { signal });
+  if (!data.ok) throw new Error("Coul Not fetch this product!");
+  return data.json();
+}

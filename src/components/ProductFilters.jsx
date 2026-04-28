@@ -1,10 +1,18 @@
 import { Search } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 export default function ProductFilters() {
+  const [params, setParams] = useSearchParams();
+  const value = params.get("q") || "";
+  function handleChange(e) {
+    setParams({ q: e.target.value });
+  }
   return (
     <div className="flex-initial flex flex-col md:flex-row items-stretch md:items-center gap-4">
       <div className="relative w-full md:w-72">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
         <input
+          onChange={handleChange}
+          value={value}
           type="text"
           placeholder="Search products..."
           className="w-full pl-10 pr-4 py-2.5 bg-gray-50 text-gray-800 border border-gray-200
