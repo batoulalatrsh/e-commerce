@@ -29,14 +29,7 @@ const routerDefenation = createBrowserRouter([
         element: <HomePage />,
         loader: homeLoader,
       },
-      {
-        path: "*",
-        element: (
-          <React.Suspense fallback="NotFound Page Laoding..">
-            <NotFoundPage />,
-          </React.Suspense>
-        ),
-      },
+
       {
         path: "products",
         element: (
@@ -77,7 +70,15 @@ const routerDefenation = createBrowserRouter([
           </React.Suspense>
         ),
         action: (meta) =>
-          import("./pages/CheckOut").then((module) => module.loader(meta)),
+          import("./pages/CheckOut").then((module) => module.action(meta)),
+      },
+      {
+        path: "*",
+        element: (
+          <React.Suspense fallback="NotFound Page Laoding..">
+            <NotFoundPage />
+          </React.Suspense>
+        ),
       },
     ],
   },
