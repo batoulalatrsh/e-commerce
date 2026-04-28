@@ -31,12 +31,13 @@ const cart = createSlice({
       if (state.items[index].quantity === 1) {
         state.items.splice(index, 1);
       } else {
-        state.items[index].quantity--;
+        state.items[index].quantity-=1;
       }
 
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
   },
+
 });
 
 export const { addItem, removeItem } = cart.actions;

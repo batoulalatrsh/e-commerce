@@ -1,25 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../store/cart";
-export default function useCart() {
+import { addItem, removeItem } from "../store/cart";
+export default function useCart(productId) {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
-  function handleAddToCart(product, size, quantity) {
+  const isInCart = items.find((item) => item.id === productId);
+
+  function handleAddToCart(product, image, size, quantity) {
     dispatch(
       addItem({
         id: product?.id,
-        image: product?.images[0],
+        image: image,
         title: product?.title,
         price: product?.price,
+        stock: product?.stock,
+        category: product?.category,
         size,
         quantity,
       }),
     );
   }
 
+  function handleRemoveItem(product) {
+    dispatch(removeItem(product));
+  }
+
   console.log(items);
   return {
     items,
     handleAddToCart,
+    handleRemoveItem,
+    isInCart,
   };
 }

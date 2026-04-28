@@ -1,12 +1,20 @@
-import { Heart, ShoppingBag, Truck, RotateCcw, Shield } from "lucide-react";
+import {
+  Heart,
+  ShoppingBag,
+  Truck,
+  RotateCcw,
+  Shield,
+  CircleCheckBig,
+} from "lucide-react";
 import useCart from "../../hooks/useCart";
 import { useState } from "react";
+import SetQuantityButtons from "../../ui/SetQuantityButtons";
 
 export default function ProductDetails({ data }) {
-  const [chosenSize, setChosenSize] = useState("M");
-  const [quantity, setQuantity] = useState(1);
-
-  const { handleAddToCart } = useCart();
+  console.log(data);
+  const { handleAddToCart, isInCart } = useCart(data.id);
+  const [chosenSize, setChosenSize] = useState(isInCart?.size);
+  const [quantity, setQuantity] = useState(isInCart?.quantity || 1);
   return (
     <section className="bg-white px-4 md:px-10 py-10">
       <p className="text-sm text-gray-400 mb-6">
@@ -27,7 +35,7 @@ export default function ProductDetails({ data }) {
 
         <div className="space-y-6 max-w-xl">
           <span className="text-xs border border-gray-300 px-2 py-1 text-gray-500 tracking-wide">
-            BOTTOMS
+            {data?.availabilityStatus}
           </span>
 
           <h1 className="text-3xl md:text-4xl font-light text-gray-900 leading-tight">
@@ -52,9 +60,9 @@ export default function ProductDetails({ data }) {
           <div className="space-y-2">
             <div className="flex justify-between">
               <p className="text-sm text-gray-500">SIZE</p>
-              <button className="text-sm text-gray-500 hover:text-black">
+              <p className="text-sm text-gray-500">
                 Size Guide
-              </button>
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -74,7 +82,7 @@ export default function ProductDetails({ data }) {
             <div className="flex items-center justify-between border border-gray-300 rounded-md w-full sm:w-40">
               <button
                 className="px-4 py-2"
-                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))}
               >
                 -
               </button>
@@ -82,7 +90,7 @@ export default function ProductDetails({ data }) {
               <button
                 className="px-4 py-2"
                 onClick={() =>
-                  setQuantity((prev) => Math.min(data?.stock || 10, prev + 1))
+                  setQuantity((prev) => Math.min(data?.stock || 1, prev + 1))
                 }
               >
                 +
@@ -92,11 +100,18 @@ export default function ProductDetails({ data }) {
             <button
               className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition"
               onClick={(e) => {
-                handleAddToCart(data, chosenSize, quantity);
-                setQuantity((prev => prev + 1));
+                handleAddToCart(data, data.images[0], chosenSize, quantity);
               }}
             >
-              ADD TO BAG <ShoppingBag size={16} />
+              {isInCart ? (
+                <>
+                  ADDED TO BAG <CircleCheckBig size={16} />
+                </>
+              ) : (
+                <>
+                  ADD TO BAG <ShoppingBag size={16} />
+                </>
+              )}
             </button>
           </div>
 
@@ -111,7 +126,6 @@ export default function ProductDetails({ data }) {
             {data?.description}
           </p>
 
-          {/* Features */}
           <div className="flex flex-wrap gap-6 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <Truck size={16} />
