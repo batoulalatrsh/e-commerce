@@ -2,6 +2,7 @@ import { Search, Heart, ShoppingBag, Menu } from "lucide-react";
 import NavBarItem from "./NavBarItem";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const totalBagCount = useSelector(selectCartCount);
   return (
@@ -22,12 +23,12 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-5 text-black/70">
-          <NavBarItem path="products">
+          <Link to="products" state={{ focusSearch: true }}>
             <Search
               size={18}
               className="cursor-pointer hover:text-black transition"
             />
-          </NavBarItem>
+          </Link>
 
           <div className="relative">
             <Heart
