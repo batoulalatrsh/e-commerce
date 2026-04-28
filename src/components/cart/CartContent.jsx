@@ -1,8 +1,10 @@
 import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../../store/cart";
 export default function CartContent({}) {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
+  const totalBagCount = useSelector(selectCartCount);
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 md:px-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -14,9 +16,7 @@ export default function CartContent({}) {
 
             <h2 className="text-2xl font-semibold mt-3 text-gray-800">
               Your Bag{" "}
-              <span className="text-gray-400 text-lg">
-                ({cartItems.length})
-              </span>
+              <span className="text-gray-400 text-lg">({totalBagCount})</span>
             </h2>
           </div>
           {cartItems.map((item) => (

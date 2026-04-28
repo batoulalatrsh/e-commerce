@@ -10,7 +10,7 @@ import HomePage, { loader as homeLoader } from "./pages/Home";
 const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
 const ProductsPage = React.lazy(() => import("./pages/Products"));
 const CartPage = React.lazy(() => import("./pages/CartPage"));
-
+const CheckOutPage = React.lazy(() => import("./pages/CheckOut"));
 const routerDefenation = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +50,14 @@ const routerDefenation = createBrowserRouter([
         element: (
           <React.Suspense fallback="Cart Page Laoding..">
             <CartPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: "cart/checkout",
+        element: (
+          <React.Suspense fallback="CheckOut Page Laoding..">
+            <CheckOutPage />
           </React.Suspense>
         ),
       },

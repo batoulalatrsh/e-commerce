@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../store/cart";
-export default function useCart(productId) {
+export default function useCart(productId = null) {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
-  const isInCart = items.find((item) => item.id === productId);
+  const isInCart = productId
+    ? items.find((item) => item.id === productId)
+    : null;
 
   function handleAddToCart(product, image, size, quantity) {
     dispatch(
