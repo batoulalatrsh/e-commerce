@@ -24,7 +24,7 @@ export default function CartContent({}) {
           ))}
         </div>
 
-        <OrderSummary />
+        <OrderSummary cssClass="bg-white rounded-2xl shadow-sm p-6 h-fit" />
       </div>
     </div>
   );

@@ -76,6 +76,8 @@ const routerDefenation = createBrowserRouter([
             <CheckOutPage />
           </React.Suspense>
         ),
+        action: (meta) =>
+          import("./pages/CheckOut").then((module) => module.loader(meta)),
       },
     ],
   },
