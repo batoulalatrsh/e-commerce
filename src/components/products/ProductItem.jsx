@@ -1,5 +1,4 @@
 import { Heart } from "lucide-react";
-import example from "/example.jpg";
 import { Link } from "react-router-dom";
 export default function ProductItem({ data }) {
   return (

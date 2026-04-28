@@ -2,14 +2,12 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-white text-black flex flex-col lg:flex-row">
       {" "}
-      {/* Left: Form Section */}{" "}
       <div className="flex-1 px-6 py-10 lg:px-16">
         {" "}
         <h1 className="text-3xl font-semibold mb-8 tracking-tight">
           {" "}
           Checkout{" "}
         </h1>
-        {/* Contact */}
         <div className="mb-10">
           <h2 className="text-lg font-medium mb-4">Contact Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -27,7 +25,6 @@ export default function CheckoutPage() {
             />
           </div>
         </div>
-        {/* Shipping */}
         <div className="mb-10">
           <h2 className="text-lg font-medium mb-4">Shipping Address</h2>
           <div className="grid grid-cols-1 gap-4">
@@ -51,7 +48,6 @@ export default function CheckoutPage() {
             />
           </div>
         </div>
-        {/* Payment */}
         <div className="mb-10">
           <h2 className="text-lg font-medium mb-4">Payment Method</h2>
           <div className="space-y-3">
@@ -63,17 +59,14 @@ export default function CheckoutPage() {
             </label>
           </div>
         </div>
-        {/* Button */}
         <button className="w-full bg-black text-white py-4 rounded-lg hover:opacity-90 transition">
           Place Order
         </button>
       </div>
-      {/* Right: Summary */}
       <div className="w-full lg:w-[400px] border-t lg:border-t-0 lg:border-l border-gray-200 px-6 py-10 bg-gray-50">
         <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
 
         <div className="space-y-4">
-          {/* Item */}
           <div className="flex justify-between text-sm">
             <span>Classic Shirt x1</span>
             <span>$120</span>

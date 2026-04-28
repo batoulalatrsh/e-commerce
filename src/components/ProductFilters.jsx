@@ -25,8 +25,8 @@ export default function ProductFilters() {
 
       <button
         className="px-5 py-2.5 bg-black text-white font-medium
-                               hover:bg-gray-900 active:scale-[0.98]
-                               shadow-sm transition duration-300"
+                hover:bg-gray-900 active:scale-[0.98]
+                  shadow-sm transition duration-300"
       >
         Filters
       </button>

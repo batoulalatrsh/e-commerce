@@ -11,15 +11,31 @@ const ProductDeatailsPage = React.lazy(() => import("./pages/ProductDetails"));
 const ProductsPage = React.lazy(() => import("./pages/Products"));
 const CartPage = React.lazy(() => import("./pages/CartPage"));
 const CheckOutPage = React.lazy(() => import("./pages/CheckOut"));
+const ErrorPage = React.lazy(() => import("./pages/Error"));
+const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
+
 const routerDefenation = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: (
+      <React.Suspense fallback="Error Page Laoding..">
+        <ErrorPage />
+      </React.Suspense>
+    ),
     children: [
       {
         index: true,
         element: <HomePage />,
         loader: homeLoader,
+      },
+      {
+        path: "*",
+        element: (
+          <React.Suspense fallback="NotFound Page Laoding..">
+            <NotFoundPage />,
+          </React.Suspense>
+        ),
       },
       {
         path: "products",

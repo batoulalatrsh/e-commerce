@@ -1,13 +1,15 @@
 import ProductItemSkeleton from "./ProductItemSkeleton";
+import SectionError from "../SectionError";
 import ProductItem from "./ProductItem";
+import EmptyState from "../EmptyState";
 import Button from "../../ui/Button";
-
 export default function Products({
   title,
   description,
   bgColor,
   products,
   loading,
+  error,
   isShoppPage = true,
   path = "",
   children = null,
@@ -42,9 +44,13 @@ export default function Products({
           Array.from({ length: 6 }).map((_, i) => (
             <ProductItemSkeleton key={i} />
           ))}
-        {products?.map((prod) => (
-          <ProductItem key={prod?.id} data={prod} />
-        ))}
+        {!loading && error && <SectionError message={error?.message} />}
+
+        {!loading && !error && products?.length === 0 && <EmptyState />}
+
+        {!loading &&
+          !error &&
+          products?.map((prod) => <ProductItem key={prod?.id} data={prod} />)}
       </div>
     </section>
   );

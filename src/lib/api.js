@@ -1,6 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
 export const queryClient = new QueryClient();
-const URL = "https://dummyjson.com/products/";
+const URL = "https://dummyjson.com/productms/";
 
 async function fetchCollection(categories, signal) {
   try {

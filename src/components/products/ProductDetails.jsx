@@ -10,7 +10,6 @@ import useCart from "../../hooks/useCart";
 import { useState } from "react";
 
 export default function ProductDetails({ data }) {
-  console.log(data);
   const { handleAddToCart, isInCart } = useCart(data.id);
   const [chosenSize, setChosenSize] = useState(isInCart?.size);
   const [quantity, setQuantity] = useState(isInCart?.quantity || 1);

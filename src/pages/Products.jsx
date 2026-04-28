@@ -8,7 +8,7 @@ export default function ProductsPage() {
   const param = useParams();
   const gendre = param.gendre;
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["products", gendre],
     queryFn:
       gendre === "men"
@@ -23,6 +23,7 @@ export default function ProductsPage() {
         isShoppPage={true}
         products={data}
         loading={isLoading}
+        error={error}
       >
         <ProductFilters />
       </Products>
