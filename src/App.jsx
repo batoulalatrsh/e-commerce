@@ -56,22 +56,28 @@ const routerDefenation = createBrowserRouter([
       },
       {
         path: "cart",
-        element: (
-          <React.Suspense fallback="Cart Page Laoding..">
-            <CartPage />
-          </React.Suspense>
-        ),
+        children: [
+          {
+            index: true,
+            element: (
+              <React.Suspense fallback="Cart Page Laoding..">
+                <CartPage />
+              </React.Suspense>
+            ),
+          },
+          {
+            path: "checkout",
+            element: (
+              <React.Suspense fallback="CheckOut Page Laoding..">
+                <CheckOutPage />
+              </React.Suspense>
+            ),
+            action: (meta) =>
+              import("./pages/CheckOut").then((module) => module.action(meta)),
+          },
+        ],
       },
-      {
-        path: "cart/checkout",
-        element: (
-          <React.Suspense fallback="CheckOut Page Laoding..">
-            <CheckOutPage />
-          </React.Suspense>
-        ),
-        action: (meta) =>
-          import("./pages/CheckOut").then((module) => module.action(meta)),
-      },
+
       {
         path: "*",
         element: (

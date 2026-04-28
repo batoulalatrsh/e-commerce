@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { selectTotalPrice } from "../../store/cart";
 import { Link } from "react-router-dom";
 export default function OrderSummary({ cssClass = "" }) {
-  const { items } = useCart();
-
   const total = useSelector(selectTotalPrice);
 
   return (
@@ -30,6 +28,7 @@ export default function OrderSummary({ cssClass = "" }) {
       {cssClass && (
         <Link to="checkout">
           <button
+            disabled={total === 0}
             className="w-full bg-black hover:bg-gray-900 text-white font-medium py-3 active:scale-[0.99]
                   shadow-sm transition duration-300"
           >
