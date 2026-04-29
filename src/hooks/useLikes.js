@@ -21,9 +21,5 @@ export default function useLikes(productId = null) {
       }),
     );
   }
-  console.log(likedItems);
-  function handleClearAll() {
-    dispatch(clearStorage());
-  }
-  return { handleToggleLike, likedItems, isLiked, handleClearAll };
+  return { handleToggleLike, likedItems, isLiked };
 }

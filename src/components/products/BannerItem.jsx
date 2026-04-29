@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import example from "/example.jpg";
-export default function BammerItem() {
+import { Link } from "react-router-dom";
+export default function BammerItem({ title, path }) {
   return (
     <div className="group relative overflow-hidden">
       <img
@@ -16,12 +17,15 @@ export default function BammerItem() {
         </p>
 
         <h2 className="text-3xl md:text-4xl font-light text-gray-900 ">
-          Outerwear Edit
+          {title}
         </h2>
 
-        <button className="mt-4 inline-flex items-center gap-2 bg-black text-white px-6 py-3 text-sm tracking-wide font-medium cursor-pointer hover:translate-x-2 transition duration-500">
+        <Link
+          to={path}
+          className="mt-4 inline-flex items-center gap-2 bg-black text-white px-6 py-3 text-sm tracking-wide font-medium cursor-pointer hover:translate-x-2 transition duration-500"
+        >
           EXPLORE <ArrowRight size={16} />
-        </button>
+        </Link>
       </div>
     </div>
   );
