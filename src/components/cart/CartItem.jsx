@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 export default function CartItem({ data }) {
   const { handleAddToCart, handleRemoveItem } = useCart(data?.id);
-  const [quantity, setQuantity] = useState(data?.quantity);
+  // const [quantity, setQuantity] = useState(data?.quantity);
+  const quantity = data?.quantity ?? 1;
   return (
     <Link
       to={`/product/${data.id}`}
@@ -27,7 +28,7 @@ export default function CartItem({ data }) {
               e.stopPropagation();
               e.preventDefault();
               handleRemoveItem(data);
-              setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+              // setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
             }}
           >
             -
@@ -39,7 +40,7 @@ export default function CartItem({ data }) {
               e.stopPropagation();
               e.preventDefault();
               handleAddToCart(data, data.image, data?.size, 1);
-              setQuantity((prev) => Math.min(data?.stock || 1, prev + 1));
+              // setQuantity((prev) => Math.min(data?.stock || 1, prev + 1));
             }}
           >
             +

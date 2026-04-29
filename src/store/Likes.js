@@ -25,7 +25,7 @@ const likes = createSlice({
   },
 });
 
-export const { liked } = likes.actions;
+export const { liked, clearStorage } = likes.actions;
 export default likes.reducer;
 
 export const selectLikestItems = (state) => state.likes.items;

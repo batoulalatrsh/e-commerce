@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { liked, selectLikestItems } from "../store/Likes";
+import { liked, selectLikestItems, clearStorage } from "../store/Likes";
 
 export default function useLikes(productId = null) {
   const likedItems = useSelector(selectLikestItems);
@@ -9,16 +9,21 @@ export default function useLikes(productId = null) {
     ? likedItems.some((item) => item.id === productId)
     : false;
 
-  function handleToggleLike(product) {
+  function handleToggleLike(product, size = "M", quantity = 1) {
     dispatch(
       liked({
         id: product?.id,
         image: product?.images?.[0],
         title: product?.title,
         price: product?.price,
+        size,
+        quantity,
       }),
     );
   }
   console.log(likedItems);
-  return { handleToggleLike, likedItems, isLiked };
+  function handleClearAll() {
+    dispatch(clearStorage());
+  }
+  return { handleToggleLike, likedItems, isLiked, handleClearAll };
 }

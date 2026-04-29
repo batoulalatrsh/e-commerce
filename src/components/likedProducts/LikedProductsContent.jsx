@@ -9,7 +9,7 @@ export default function LikedProductsContent({}) {
       <Header />
       <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-6">
         {likedItems.map((item) => (
-          <LikedProductItem key={item.id} />
+          <LikedProductItem key={item.id} data={item} />
         ))}
       </div>
 

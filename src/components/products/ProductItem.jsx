@@ -1,6 +1,10 @@
 import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import useLikes from "../../hooks/useLikes";
+import useCart from "../../hooks/useCart";
 export default function ProductItem({ data }) {
+  const { isLiked, handleToggleLike } = useLikes(data?.id);
+  const { handleAddToCart, isInCart } = useCart(data?.id);
   return (
     <Link
       to={`/product/${data?.id}`}
@@ -12,10 +16,30 @@ export default function ProductItem({ data }) {
         </div>
 
         <div className="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition duration-400 flex items-end">
-          <button className="w-full bg-black text-white py-3 text-sm font-medium tracking-wide hover:bg-title transition duration-300 cursor-pointer">
-            QUICK ADD
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleAddToCart(data, data?.images[0], "M", 1);
+            }}
+            className="w-full bg-black text-white py-3 text-sm font-medium tracking-wide hover:bg-title transition duration-300 cursor-pointer"
+          >
+            {isInCart ? "IN CARD" : "QUICK ADD"}
           </button>
         </div>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            handleToggleLike(data);
+          }}
+          className="absolute top-2 left-2 bg-white p-2 rounded-full shadow hover:bg-gray-100 transition duration-300 z-20"
+        >
+          <Heart
+            size={14}
+            className={isLiked ? "text-red-500 fill-red-500" : ""}
+          />
+        </button>
       </div>
 
       <div className="mt-4 space-y-1">

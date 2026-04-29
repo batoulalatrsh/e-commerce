@@ -115,7 +115,7 @@ export default function ProductDetails({ data }) {
           </div>
 
           <button
-            onClick={() => handleToggleLike(data)}
+            onClick={() => handleToggleLike(data, chosenSize, quantity)}
             className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 text-sm rounded-md hover:border-black/50 hover:text-black transition duration-300"
           >
             <Heart
