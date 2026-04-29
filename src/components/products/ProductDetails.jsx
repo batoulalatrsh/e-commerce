@@ -6,13 +6,16 @@ import {
   Shield,
   CircleCheckBig,
 } from "lucide-react";
-import useCart from "../../hooks/useCart";
 import { useState } from "react";
+import useCart from "../../hooks/useCart";
+import useLikes from "../../hooks/useLikes";
 
 export default function ProductDetails({ data }) {
   const { handleAddToCart, isInCart } = useCart(data.id);
+  const { handleToggleLike, isLiked } = useLikes(data?.id);
   const [chosenSize, setChosenSize] = useState(isInCart?.size);
   const [quantity, setQuantity] = useState(isInCart?.quantity || 1);
+
   return (
     <section className="bg-white px-4 md:px-10 py-10">
       <p className="text-sm text-gray-400 mb-6">
@@ -58,9 +61,7 @@ export default function ProductDetails({ data }) {
           <div className="space-y-2">
             <div className="flex justify-between">
               <p className="text-sm text-gray-500">SIZE</p>
-              <p className="text-sm text-gray-500">
-                Size Guide
-              </p>
+              <p className="text-sm text-gray-500">Size Guide</p>
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -113,9 +114,16 @@ export default function ProductDetails({ data }) {
             </button>
           </div>
 
-          <button className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 text-sm rounded-md hover:border-black hover:text-black transition">
-            <Heart size={16} />
-            ADD TO WISHLIST
+          <button
+            onClick={() => handleToggleLike(data)}
+            className="w-full flex items-center justify-center gap-2 border border-gray-300 py-3 text-sm rounded-md hover:border-black/50 hover:text-black transition duration-300"
+          >
+            <Heart
+              size={20}
+              fill={isLiked ? "currentColor" : "transparent"}
+              className={isLiked ? "text-red-500" : "text-black"}
+            />
+            {isLiked ? "ADDED TO WISHLIST" : "ADD TO WISHLIST"}
           </button>
 
           <hr className="border-gray-200" />

@@ -26,8 +26,6 @@ export default function useCart(productId = null) {
   function handleRemoveItem(product) {
     dispatch(removeItem(product));
   }
-
-  console.log(items);
   return {
     items,
     handleAddToCart,

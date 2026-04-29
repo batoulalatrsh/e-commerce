@@ -1,10 +1,13 @@
 import { Search, Heart, ShoppingBag, Menu } from "lucide-react";
-import NavBarItem from "./NavBarItem";
-import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart";
+import { selectLikesCount } from "../../store/Likes";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import NavBarItem from "./NavBarItem";
+
 export default function Navbar() {
   const totalBagCount = useSelector(selectCartCount);
+  const totalLikesCount = useSelector(selectLikesCount);
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-black/5">
       <div className="flex items-center justify-between px-5 py-4 md:px-12">
@@ -36,9 +39,11 @@ export default function Navbar() {
                 size={18}
                 className="cursor-pointer hover:text-black transition"
               />
-              <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
-                2
-              </span>
+              {totalLikesCount !== 0 && (
+                <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
+                  {totalLikesCount}
+                </span>
+              )}
             </NavBarItem>
           </div>
 
@@ -49,9 +54,11 @@ export default function Navbar() {
                 className="cursor-pointer hover:text-black transition"
               />
 
-              <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
-                {totalBagCount}
-              </span>
+              {totalBagCount !== 0 && (
+                <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
+                  {totalBagCount}
+                </span>
+              )}
             </NavBarItem>
           </div>
 

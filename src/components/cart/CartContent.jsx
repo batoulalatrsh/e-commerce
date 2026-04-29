@@ -2,8 +2,10 @@ import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart";
+import useCart from "../../hooks/useCart";
 export default function CartContent({}) {
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const { items: cartItems } = useCart();
+  // const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   const totalBagCount = useSelector(selectCartCount);
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 md:px-10">

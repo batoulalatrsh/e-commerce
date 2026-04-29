@@ -1,14 +1,16 @@
+import LikedProductItem from "./LikedProductItem";
 import { Heart } from "lucide-react";
 import Header from "./Header";
-import LikedProductItem from "./LikedProductItem";
+import useLikes from "../../hooks/useLikes";
 export default function LikedProductsContent({}) {
+  const { likedItems } = useLikes();
   return (
     <section className="bg-white min-h-screen px-4 md:px-10 py-8">
-        <Header/>
+      <Header />
       <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-6">
-        <LikedProductItem />
-        <LikedProductItem />
-        <LikedProductItem />
+        {likedItems.map((item) => (
+          <LikedProductItem key={item.id} />
+        ))}
       </div>
 
       <div className="hidden flex-col items-center justify-center text-center py-20">
@@ -18,7 +20,6 @@ export default function LikedProductsContent({}) {
           Browse Products
         </button>
       </div>
-      
     </section>
   );
 }
