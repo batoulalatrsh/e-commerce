@@ -13,6 +13,7 @@ const CartPage = React.lazy(() => import("./pages/CartPage"));
 const CheckOutPage = React.lazy(() => import("./pages/CheckOut"));
 const ErrorPage = React.lazy(() => import("./pages/Error"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
+const LikedProductsPage = React.lazy(() => import("./pages/LikedProducts"));
 
 const routerDefenation = createBrowserRouter([
   {
@@ -76,6 +77,14 @@ const routerDefenation = createBrowserRouter([
               import("./pages/CheckOut").then((module) => module.action(meta)),
           },
         ],
+      },
+      {
+        path: "likedProducts",
+        element: (
+          <React.Suspense>
+            <LikedProductsPage />
+          </React.Suspense>
+        ),
       },
 
       {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function ProductItem({ data }) {
   return (
     <Link
-      to={`/product/${data.id}`}
+      to={`/product/${data?.id}`}
       className="p-2 cursor-pointer min-w-[75%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[23%] snap-start"
     >
       <div className="group relative overflow-hidden bg-[#ffff] border border-gray-200">

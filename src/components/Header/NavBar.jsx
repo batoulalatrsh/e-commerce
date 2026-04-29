@@ -31,13 +31,15 @@ export default function Navbar() {
           </Link>
 
           <div className="relative">
-            <Heart
-              size={18}
-              className="cursor-pointer hover:text-black transition"
-            />
-            <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
-              2
-            </span>
+            <NavBarItem path="likedProducts">
+              <Heart
+                size={18}
+                className="cursor-pointer hover:text-black transition"
+              />
+              <span className="absolute -top-2 -right-2 text-[10px] bg-black text-white px-1 rounded-full">
+                2
+              </span>
+            </NavBarItem>
           </div>
 
           <div className="relative">
