@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
+import { useDispatch } from "react-redux";
+import { removeItem } from "../../store/cart";
 export default function CartItem({ data }) {
-  const { handleAddToCart, handleRemoveItem } = useCart(data?.id);
-  // const [quantity, setQuantity] = useState(data?.quantity);
+  const { handleAddToCart } = useCart(data?.id);
+  const dispatch = useDispatch();
   const quantity = data?.quantity ?? 1;
   return (
     <Link
@@ -27,8 +28,7 @@ export default function CartItem({ data }) {
             onClick={(e) => {
               e.stopPropagation();
               e.preventDefault();
-              handleRemoveItem(data);
-              // setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+              dispatch(removeItem(data));
             }}
           >
             -
@@ -40,7 +40,6 @@ export default function CartItem({ data }) {
               e.stopPropagation();
               e.preventDefault();
               handleAddToCart(data, data.image, data?.size, 1);
-              // setQuantity((prev) => Math.min(data?.stock || 1, prev + 1));
             }}
           >
             +

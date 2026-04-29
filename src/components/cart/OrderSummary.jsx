@@ -1,5 +1,4 @@
 import SummaryRow from "./SummaryRow";
-import useCart from "../../hooks/useCart";
 import { useSelector } from "react-redux";
 import { selectTotalPrice } from "../../store/cart";
 import { Link } from "react-router-dom";

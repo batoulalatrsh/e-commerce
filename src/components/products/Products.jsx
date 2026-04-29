@@ -19,7 +19,6 @@ export default function Products({
   children = null,
 }) {
   const { debouncedValue } = useSearch();
-
   const isSearching = Boolean(debouncedValue);
 
   const {

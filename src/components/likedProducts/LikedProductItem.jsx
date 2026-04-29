@@ -23,6 +23,7 @@ export default function LikedProductItem({ data }) {
 
           <div className="hidden md:absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition duration-300 md:flex items-end z-10">
             <button
+              disabled={isInCart}
               onClick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -65,6 +66,7 @@ export default function LikedProductItem({ data }) {
           </div>
 
           <button
+            disabled={isInCart}
             onClick={(e) => {
               e.stopPropagation();
               e.preventDefault();
@@ -75,7 +77,7 @@ export default function LikedProductItem({ data }) {
             hover:bg-black hover:text-white transition duration-300
           "
           >
-            Add to Cart
+            {isInCart ? "IN CARD" : "Add to Cart"}
           </button>
         </div>
       </Link>

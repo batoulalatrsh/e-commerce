@@ -2,8 +2,10 @@ import LikedProductItem from "./LikedProductItem";
 import { Heart } from "lucide-react";
 import Header from "./Header";
 import useLikes from "../../hooks/useLikes";
+import { useSelector } from "react-redux";
+import { selectLikestItems } from "../../store/Likes";
 export default function LikedProductsContent({}) {
-  const { likedItems } = useLikes();
+  const likedItems = useSelector(selectLikestItems);
   return (
     <section className="bg-white min-h-screen px-4 md:px-10 py-8">
       <Header />

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center">
@@ -27,9 +28,12 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-black text-white px-6 py-3 text-sm cursor-pointer hover:-translate-y-1.5 transition duration-300">
+          <Link
+            to="products"
+            className="bg-black text-white px-6 py-3 text-sm cursor-pointer hover:-translate-y-1.5 transition duration-300"
+          >
             SHOP NOW →
-          </button>
+          </Link>
 
           <button className="border border-black px-6 py-3 text-sm hover:bg-black cursor-pointer hover:text-white transition duration-300">
             VIEW LOOKBOOK

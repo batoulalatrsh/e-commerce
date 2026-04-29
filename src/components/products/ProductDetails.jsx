@@ -98,6 +98,7 @@ export default function ProductDetails({ data }) {
 
             <button
               className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 text-sm font-medium rounded-md hover:bg-gray-900 transition"
+              disabled={isInCart}
               onClick={(e) => {
                 handleAddToCart(data, data.images[0], chosenSize, quantity);
               }}

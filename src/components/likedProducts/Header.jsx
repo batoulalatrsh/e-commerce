@@ -1,7 +1,7 @@
-import { ShoppingBag } from "lucide-react";
-import useLikes from "../../hooks/useLikes";
+import { useDispatch } from "react-redux";
+import { clearStorage } from "../../store/Likes";
 export default function Header() {
-  const { handleClearAll } = useLikes();
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
       <div>
@@ -13,14 +13,10 @@ export default function Header() {
 
       <div className="flex gap-2">
         <button
-          onClick={() => handleClearAll()}
+          onClick={() => dispatch(clearStorage())}
           className="border border-gray-300 px-3 py-2 text-sm hover:bg-gray-100 transition"
         >
           Clear All
-        </button>
-        <button className="bg-black text-white px-4 py-2 text-sm flex items-center gap-2 hover:opacity-90 transition">
-          <ShoppingBag size={16} />
-          Add All to Cart
         </button>
       </div>
     </div>

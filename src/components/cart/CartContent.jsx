@@ -1,11 +1,9 @@
 import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
 import { useSelector } from "react-redux";
-import { selectCartCount } from "../../store/cart";
-import useCart from "../../hooks/useCart";
+import { selectCartCount, selectCartItems } from "../../store/cart";
 export default function CartContent({}) {
-  const { items: cartItems } = useCart();
-  // const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItems = useSelector(selectCartItems);
   const totalBagCount = useSelector(selectCartCount);
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 md:px-10">
