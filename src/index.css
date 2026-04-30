@@ -1,6 +1,69 @@
 @import "tailwindcss";
+
+/* Inter */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter_18pt-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter_18pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter_18pt-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter_18pt-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter_28pt-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* Playfair Display */
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/PlayfairDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/PlayfairDisplay-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Playfair", sans-serif;
 }
 
 @theme {
@@ -11,6 +74,13 @@ body {
   --color-bg: #0f0e0d;
   --color-accent: #e8a020;
   --color-accent2: #c45c2a;
+}
+
+.title {
+  font-weight: 700;
+}
+.text {
+  font-weight: 400;
 }
 
 ::-webkit-scrollbar {

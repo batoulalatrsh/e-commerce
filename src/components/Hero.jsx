@@ -9,8 +9,6 @@ export default function Hero() {
           alt="hero"
           className="w-full h-full object-cover"
         />
-
-        {/* <div className="absolute inset-0 bg-white/10" /> */}
       </div>
 
       <div className="relative z-10 px-5 md:px-16 max-w-3xl text-black">

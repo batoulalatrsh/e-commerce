@@ -12,10 +12,10 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-black/5">
       <div className="flex items-center justify-between px-5 py-4 md:px-12">
         <div className="leading-tight tracking-[0.25em]">
-          <a href="" className="text-black text-sm font-semibold">
+          <h1 href="" className="text-[#B79566] text-2xl font-semibold uppercase ">
             AURUM
-          </a>
-          <p className="text-[10px] text-black/50">STUDIO</p>
+          </h1>
+          {/* <p className="text-[10px] text-black/50">STUDIO</p> */}
         </div>
 
         <ul className="hidden md:flex gap-10 text-sm text-black/60">
