@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import useCart from "../../hooks/useCart";
 import useLikes from "../../hooks/useLikes";
-
+import ProductImagesSlider from "./ProductImagesSlider";
 export default function ProductDetails({ data }) {
   const { handleAddToCart, isInCart } = useCart(data.id);
   const { handleToggleLike, isLiked } = useLikes(data?.id);
@@ -22,18 +22,8 @@ export default function ProductDetails({ data }) {
         Shop / Bottoms / {data?.title}
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-        <div className="w-full flex justify-center lg:justify-start">
-          <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-            <div className="aspect-[4/5] lg:aspect-[1/1] w-full overflow-hidden rounded-2xl bg-gray-100">
-              <img
-                src={data?.images[0]}
-                className="w-full h-full object-cover transition duration-500 hover:scale-105"
-              />
-            </div>
-          </div>
-        </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-8 items-start">
+        <ProductImagesSlider images={data?.images} />
         <div className="space-y-6 max-w-xl">
           <span className="text-xs border border-gray-300 px-2 py-1 text-gray-500 tracking-wide">
             {data?.availabilityStatus}

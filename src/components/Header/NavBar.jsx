@@ -21,8 +21,7 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-10 text-sm text-black/60">
           <NavBarItem path="">HOME</NavBarItem>
           <NavBarItem path="products">SHOP</NavBarItem>
-          <NavBarItem path="">COLLECTIONS</NavBarItem>
-          <NavBarItem path="">ABOUT</NavBarItem>
+          <NavBarItem path="about">ABOUT</NavBarItem>
         </ul>
 
         <div className="flex items-center gap-5 text-black/70">

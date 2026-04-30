@@ -14,6 +14,7 @@ const CheckOutPage = React.lazy(() => import("./pages/CheckOut"));
 const ErrorPage = React.lazy(() => import("./pages/Error"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFound"));
 const LikedProductsPage = React.lazy(() => import("./pages/LikedProducts"));
+const AboutPage = React.lazy(() => import("./pages/About"));
 
 const routerDefenation = createBrowserRouter([
   {
@@ -83,6 +84,14 @@ const routerDefenation = createBrowserRouter([
         element: (
           <React.Suspense>
             <LikedProductsPage />
+          </React.Suspense>
+        ),
+      },
+      {
+        path: "about",
+        element: (
+          <React.Suspense>
+            <AboutPage />
           </React.Suspense>
         ),
       },

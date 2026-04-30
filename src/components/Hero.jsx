@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import hero from '../../public/hero.png'
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
         <img
-          src="/hero.webp"
+          src={hero}
           alt="hero"
           className="w-full h-full object-cover"
         />
