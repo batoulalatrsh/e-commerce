@@ -1,24 +1,17 @@
 import { ArrowRight } from "lucide-react";
 import example from "/example.jpg";
 import { Link } from "react-router-dom";
-export default function BammerItem({ title, path }) {
+export default function BammerItem({  path ,imgSrc}) {
   return (
     <div className="group relative overflow-hidden">
       <img
-        src={example}
+        src={imgSrc}
         className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
       />
 
       <div className="absolute inset-0 bg-black/10 group-hover:bg-white/5 transition duration-500" />
 
       <div className="absolute bottom-10 left-6 md:left-10 space-y-4">
-        <p className="text-xs tracking-[3px] text-gray-500 uppercase ">
-          NEW SEASON
-        </p>
-
-        <h2 className="text-3xl md:text-4xl font-light text-gray-900 ">
-          {title}
-        </h2>
 
         <Link
           to={path}

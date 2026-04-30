@@ -45,7 +45,7 @@ export default function Products({
               {isSearching ? `Results for "${debouncedValue}"` : description}
             </span>
 
-            <h2 className="text-3xl md:text-5xl mt-3 font-light text-gray-900">
+            <h2 className="text-2xl md:text-4xl mt-3 font-light text-gray-900">
               {title}
             </h2>
           </div>
