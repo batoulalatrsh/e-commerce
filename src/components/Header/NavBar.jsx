@@ -25,14 +25,18 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-5 text-black/70">
-          <Link to="products" state={{ focusSearch: true }}>
+          <Link
+            to="products"
+            state={{ focusSearch: true }}
+            className="hidden md:block"
+          >
             <Search
               size={18}
               className="cursor-pointer hover:text-black transition"
             />
           </Link>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <NavBarItem path="likedProducts">
               <Heart
                 size={18}
@@ -46,7 +50,7 @@ export default function Navbar() {
             </NavBarItem>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <NavBarItem path="cart">
               <ShoppingBag
                 size={18}
