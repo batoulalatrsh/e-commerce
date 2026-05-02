@@ -16,7 +16,7 @@ export default function MobileSidebar({ open, setOpen }) {
       />
 
       <div
-        className={`mt-[64px] fixed top-0 right-0 h-full w-[80%] max-w-xs bg-white z-50 shadow-2xl transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`pt-[64px] fixed top-0 right-0 h-full w-[80%] max-w-xs bg-white z-50 shadow-2xl transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >

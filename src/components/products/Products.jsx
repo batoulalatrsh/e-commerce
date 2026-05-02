@@ -39,7 +39,7 @@ export default function Products({
   return (
     <section className={`${bgColor} px-4 md:px-10 py-6 md:py-10`}>
       <div className="flex md:items-center flex-col-reverse md:flex-row w-full justify-between">
-        <div className="flex items-end justify-between mb-10 py-2">
+        <div className="w-full flex items-end justify-between mb-10 py-2">
           <div>
             <span className="text-[11px] border border-gray-300 text-gray-600 px-2 py-1 tracking-wide">
               {isSearching ? `Results for "${debouncedValue}"` : description}
