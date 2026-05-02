@@ -20,11 +20,11 @@ It focuses on performance, usability, and modern frontend development practices 
 
 ## Tech Stack
 
-React.js
-Tailwind CSS
-Firebase Authentication
-TanStack Query
-React Router DOM
+- React.js
+- Tailwind CSS
+- Firebase Authentication
+- TanStack Query
+- React Router DOM
 
 ## Live Demo
 [https://e-commerce-desb.vercel.app/]
