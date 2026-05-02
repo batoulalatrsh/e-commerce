@@ -27,7 +27,7 @@ TanStack Query
 React Router DOM
 
 ## Live Demo
-[e-commerce-desb.vercel.app]
+[https://e-commerce-desb.vercel.app/]
 
 Clone the repository:
 
