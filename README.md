@@ -1,16 +1,25 @@
-# React + Vite
+Aurum Store — Luxury E-Commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aurum is a modern e-commerce frontend for a clothing brand, built with a focus on clean architecture, performance, and a refined luxury design.
 
-Currently, two official plugins are available:
+Live Demo: https://e-commerce-desb.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
+Responsive, modern UI with a luxury aesthetic
+Firebase Authentication (login, register, logout)
+Product listing and detail pages
+Cart and favorites functionality
+Optimized data fetching with TanStack Query
+Smooth client-side routing with React Router
+Tech Stack
+React.js
+Tailwind CSS
+Firebase Authentication
+TanStack Query
+React Router DOM
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Getting Started
+git clone https://github.com/your-username/aurum-store.git
+cd aurum-store
+npm install
+npm run dev
