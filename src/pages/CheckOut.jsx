@@ -8,6 +8,7 @@ import { store } from "../store/store";
 import { useActionData } from "react-router";
 import { useState, useEffect, useRef } from "react";
 import { useNavigation } from "react-router";
+import formValidation from "../lib/validation";
 export default function CheckoutPage() {
   const [open, setOpen] = useState(false);
   const formRef = useRef();
@@ -19,7 +20,7 @@ export default function CheckoutPage() {
     }
   }, [actionData]);
 
-  if (navigation.state === "idle") {
+  if (navigation.state === "idle" && actionData?.success) {
     formRef.current?.reset();
   }
 
@@ -48,6 +49,14 @@ export async function action({ request }) {
       phoneNumber: data.get("phone-number"),
       payment: data.get("payment"),
     };
+    const errors = formValidation(cusomerData);
+
+    if (Object.keys(errors).length > 0) {
+      return {
+        success: false,
+        errors,
+      };
+    }
     await checkOut(cusomerData);
     store.dispatch(clearStorage());
     return { success: true };

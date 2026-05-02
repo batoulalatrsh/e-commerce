@@ -2,28 +2,55 @@ import FormInput from "./FormInput";
 import { Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart";
+import { useActionData } from "react-router-dom";
 export default function CheckOutForm({ ref }) {
   const totalBagCount = useSelector(selectCartCount);
-
+  const formData = useActionData();
+  console.log(formData);
   return (
     <Form ref={ref} method="post" className="flex-1 px-6 py-10 lg:px-16">
       <h1 className="text-3xl font-semibold mb-8 tracking-tight">Checkout</h1>
       <div className="mb-10">
         <h2 className="text-lg font-medium mb-4">Contact Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormInput placeholder="First name" name="first-name" />
-          <FormInput placeholder="Last name" name="last-name" />
+          <FormInput
+            placeholder="First name"
+            name="first-name"
+            error={formData?.errors?.firstName}
+          />
+
+          <FormInput
+            placeholder="Last name"
+            name="last-name"
+            error={formData?.errors?.lastName}
+          />
         </div>
       </div>
       <div className="mb-10">
         <h2 className="text-lg font-medium mb-4">Shipping Address</h2>
         <div className="grid grid-cols-1 gap-4">
-          <FormInput placeholder="Address" name="address" />
+          <FormInput
+            placeholder="Address"
+            name="address"
+            error={formData?.errors?.address}
+          />
           <div className="grid grid-cols-2 gap-4">
-            <FormInput placeholder="City" name="city" />
-            <FormInput placeholder="Postal Code" name="postal-code" />
+            <FormInput
+              placeholder="City"
+              name="city"
+              error={formData?.errors?.city}
+            />
+            <FormInput
+              placeholder="Postal Code"
+              name="postal-code"
+              error={formData?.errors?.postalCode}
+            />
           </div>
-          <FormInput placeholder="Phone number" name="phone-number" />
+          <FormInput
+            placeholder="Phone number"
+            name="phone-number"
+            error={formData?.errors?.phoneNumber}
+          />
         </div>
       </div>
 
@@ -48,11 +75,16 @@ export default function CheckOutForm({ ref }) {
             />
             Cash on Delivery
           </label>
+          {formData?.errors?.payment && (
+            <p className="text-red-500 text-sm mt-1 min-h-[18px]">
+              {formData?.errors?.payment || ""}
+            </p>
+          )}
         </div>
       </div>
       <button
         type="submit"
-        disabled={totalBagCount===0}
+        disabled={totalBagCount === 0}
         className="w-full bg-black text-white py-4 rounded-lg hover:opacity-90 active:scale-99 transition duration-300"
       >
         Place Order
