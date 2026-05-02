@@ -1,16 +1,20 @@
-Aurum Store — Luxury E-Commerce Frontend
+Aurum Store
+A modern e-commerce frontend built with React.js that delivers a fast, responsive, and scalable user experience.
+This project was developed to showcase clean architecture, reusable components, and efficient state and data management for a luxury clothing brand.
 
-Aurum is a modern e-commerce frontend for a clothing brand, built with a focus on clean architecture, performance, and a refined luxury design.
+Overview
+This application provides a structured interface for browsing products, managing cart and favorites, and handling user authentication.
+It focuses on performance, usability, and modern frontend development practices with a refined and minimal design.
 
-Live Demo: https://e-commerce-desb.vercel.app
-
-Features
-Responsive, modern UI with a luxury aesthetic
-Firebase Authentication (login, register, logout)
-Product listing and detail pages
+Key Features
+Fast and optimized performance
+Fully responsive design (mobile-first approach)
+Firebase authentication (login, register, logout)
+Dynamic product listing and details
 Cart and favorites functionality
-Optimized data fetching with TanStack Query
-Smooth client-side routing with React Router
+Reusable and modular components
+Efficient data fetching and caching
+
 Tech Stack
 React.js
 Tailwind CSS
@@ -18,8 +22,9 @@ Firebase Authentication
 TanStack Query
 React Router DOM
 
-Getting Started
-git clone https://github.com/your-username/aurum-store.git
-cd aurum-store
-npm install
-npm run dev
+Live Demo
+e-commerce-desb.vercel.app
+
+Clone the repository:
+
+`bash git clone https://github.com/your-username/aurum-store.git`
