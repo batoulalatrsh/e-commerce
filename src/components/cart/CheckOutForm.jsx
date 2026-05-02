@@ -2,7 +2,6 @@ import FormInput from "./FormInput";
 import { Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../store/cart";
-
 export default function CheckOutForm({ ref }) {
   const totalBagCount = useSelector(selectCartCount);
 

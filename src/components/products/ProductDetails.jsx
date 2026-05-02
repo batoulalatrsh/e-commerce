@@ -10,6 +10,7 @@ import { useState } from "react";
 import useCart from "../../hooks/useCart";
 import useLikes from "../../hooks/useLikes";
 import ProductImagesSlider from "./ProductImagesSlider";
+import Stars from "../../ui/Stars";
 export default function ProductDetails({ data }) {
   const { handleAddToCart, isInCart } = useCart(data.id);
   const { handleToggleLike, isLiked } = useLikes(data?.id);
@@ -22,7 +23,7 @@ export default function ProductDetails({ data }) {
         Shop / Bottoms / {data?.title}
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-8 items-center md:items-start">
         <ProductImagesSlider images={data?.images} />
         <div className="space-y-6 max-w-xl">
           <span className="text-xs border border-gray-300 px-2 py-1 text-gray-500 tracking-wide">
@@ -39,10 +40,7 @@ export default function ProductDetails({ data }) {
             </p>
 
             <div className="flex items-center gap-2 text-sm">
-              <div className="flex text-yellow-500">★★★★☆</div>
-              <span className="text-gray-400">
-                {data?.rating?.count} reviews
-              </span>
+              <Stars rate={data?.rating}/>
             </div>
           </div>
 

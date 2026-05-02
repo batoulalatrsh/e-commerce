@@ -15,6 +15,7 @@ export default function ProductsPage() {
         ? ({ signal }) => getmenCollection({ signal })
         : ({ signal }) => getwomansCollection({ signal }),
   });
+  console.log(data);
   return (
     <>
       <Products

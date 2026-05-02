@@ -2,6 +2,7 @@ import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import useLikes from "../../hooks/useLikes";
 import useCart from "../../hooks/useCart";
+import Stars from "../../ui/Stars";
 export default function ProductItem({ data }) {
   const { isLiked, handleToggleLike } = useLikes(data?.id);
   const { handleAddToCart, isInCart } = useCart(data?.id);
@@ -53,11 +54,7 @@ export default function ProductItem({ data }) {
         </div>
 
         <div className="flex items-center gap-1 text-sm">
-          <div className="flex text-yellow-500">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <span key={i}>★</span>
-            ))}
-          </div>
+          <Stars rate={data?.rating} />
         </div>
       </div>
     </Link>

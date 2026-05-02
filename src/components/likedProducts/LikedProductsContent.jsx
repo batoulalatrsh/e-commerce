@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { selectLikestItems } from "../../store/Likes";
 export default function LikedProductsContent({}) {
   const likedItems = useSelector(selectLikestItems);
-  console.log(likedItems);
   return (
     <section className="bg-white min-h-screen px-4 md:px-10 py-8">
       <Header />
