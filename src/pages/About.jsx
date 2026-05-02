@@ -80,7 +80,7 @@ export default function AboutPage() {
           Discover collections crafted to elevate your everyday wardrobe.
         </p>
         <Link
-          to="products"
+          to="/products"
           className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition duration-300"
         >
           Explore Collection

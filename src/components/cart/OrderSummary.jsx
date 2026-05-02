@@ -14,7 +14,6 @@ export default function OrderSummary({ cssClass = "" }) {
       <div className="space-y-3 text-sm">
         <SummaryRow label="Subtotal" value={total.toFixed(2)} />
         <SummaryRow label="Shipping" value="Free" highlight />
-        {/* <SummaryRow label="Tax (est.)" value="$34.72" /> */}
       </div>
 
       <div className="border-t my-5"></div>

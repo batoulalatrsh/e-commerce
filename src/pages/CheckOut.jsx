@@ -1,9 +1,10 @@
-import { redirect } from "react-router";
 import CheckOutForm from "../components/cart/CheckOutForm";
 import OrderSummary from "../components/cart/OrderSummary";
+import SuccessModal from "../ui/SuccessModal";
 import { checkOut } from "../lib/firebase/checkOut";
 import { clearStorage } from "../store/cart";
 import { store } from "../store/store";
+import { redirect } from "react-router";
 export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-white text-black flex flex-col lg:flex-row">
@@ -29,6 +30,7 @@ export async function action({ request }) {
     };
     await checkOut(cusomerData);
     store.dispatch(clearStorage());
+
   } catch (err) {
     throw new Response(
       JSON.stringify({

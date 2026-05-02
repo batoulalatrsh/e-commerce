@@ -2,6 +2,7 @@ import CartItem from "./CartItem";
 import OrderSummary from "./OrderSummary";
 import { useSelector } from "react-redux";
 import { selectCartCount, selectCartItems } from "../../store/cart";
+import NoItems from "../likedProducts/NoItems";
 export default function CartContent({}) {
   const cartItems = useSelector(selectCartItems);
   const totalBagCount = useSelector(selectCartCount);
@@ -19,7 +20,10 @@ export default function CartContent({}) {
               <span className="text-gray-400 text-lg">({totalBagCount})</span>
             </h2>
           </div>
-          {cartItems.map((item) => (
+          {cartItems && cartItems.length === 0 && (
+            <NoItems text="Your bag is empty" path="/products" />
+          )}
+          {cartItems?.map((item) => (
             <CartItem key={item.id} data={item} />
           ))}
         </div>
