@@ -1,16 +1,35 @@
-# React + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce frontend built with React.js that delivers a fast, responsive, and scalable user experience.
+This project was developed to showcase clean architecture, reusable components, and efficient state and data management for a luxury clothing brand.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This application provides a structured interface for browsing products, managing cart and favorites, and handling user authentication.
+It focuses on performance, usability, and modern frontend development practices with a refined and minimal design.
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Fast and optimized performance
+- Fully responsive design (mobile-first approach)
+- Firebase
+- Dynamic product listing and details
+- Cart and favorites functionality
+- Reusable and modular components
+- Efficient data fetching and caching
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Tailwind CSS
+- Firebase Authentication
+- TanStack Query
+- React Router DOM
+
+## Live Demo
+[https://e-commerce-desb.vercel.app/]
+
+Clone the repository:
+
+`bash
+git clone [https://github.com/your-username/aurum-store.git](https://github.com/batoulalatrsh/e-commerce)
